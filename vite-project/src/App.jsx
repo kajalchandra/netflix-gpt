@@ -1,13 +1,16 @@
 
 
 import './App.css'
+import Body from './components/Body'
 
 function App() {
  
 
   return (
     <>
-    <div className='bg-amber-400'>hello</div>
+    <div>
+      <Body/>
+    </div>
     </>
   )
 }

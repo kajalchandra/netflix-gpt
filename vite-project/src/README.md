@@ -1,3 +1,11 @@
+# Netflix GPT
+-create app using vite
+- configure tailwindcss
+- Header
+-Login form
+-Sign up form in the same form . Convert the same form into sign up form
+-Read about formik
+
 # Features
 - Login/Sign Up
     - Sign In/Sign up Form
@@ -9,7 +17,7 @@
         - Title & Description
         - MovieSuggestions
             - MovieSuggestions
-                - MovieLista 8 N
+                - MovieList 8 N
 - NetflixGPT
     - Search Bar
     - Movie Suggestions
