@@ -1,21 +1,89 @@
+// full form if rafce is react arrow function export component
 import React, { useRef, useState } from 'react'
 import Header from './Header'
 import { checkValidate } from '../utils/validate'
-// full form if rafce is react arrow function export component
+import {  createUserWithEmailAndPassword ,signInWithEmailAndPassword,updateProfile} from "firebase/auth";
+import { auth } from '../utils/firebase';
+
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
+
+
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true)
   const [errorMessage,setErrorMessage] = useState(null)
+ 
   const email = useRef(null)
   const password = useRef(null)
   const name = useRef(null)
+  const dispatch = useDispatch()
+
+
+
   const handleButtonClick = () =>{
     //validate the form data
-   const msg =  checkValidate(email.current.value,password.current.value,name.current.value)
+   const msg =  checkValidate(email.current.value,password.current.value)
   console.log('msg',msg)
    setErrorMessage(msg)
    // console.log(email.current.value)
    // console.log(password.current.value)
-   console.log(name.current.vaue)
+   //console.log(name.current.vaue)
+
+   if(msg) return; // i don't want to write my whole logic in this if , so this is the good way
+
+   if(!isSignInForm){
+    // sign up logic
+    createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    //jaise hi we will sign up, then we will update our username
+    updateProfile(user, {
+      displayName: name.current.value, 
+      photoURL: "https://i.pinimg.com/564x/1b/a2/e6/1ba2e6d1d4874546c70c91f1024e17fb.jpg"
+    }).then(() => {
+      // Profile updated!
+      // ...
+       const {uid,email,displayName,photoURL} = auth.currentUser;
+            dispatch(addUser({
+              uid: uid, 
+              email: email,
+              displayName: displayName,
+              photoURL: photoURL}))
+      //once my profile is updated, then navigate
+      
+    }).catch((error) => {
+      // An error occurred
+      // ...
+      setErrorMessage(error.message)
+    });
+    console.log("user",user)
+  
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setErrorMessage(errorCode+" "+errorMessage)
+    // ..
+  });
+   }else{
+    //sign In logic
+    signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      // ...
+      console.log("sign user",user)
+      
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setErrorMessage(errorCode+"-"+errorMessage)
+    });
+   }
 
   }
   const toggleSignInForm = ()=>{
