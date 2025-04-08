@@ -13,7 +13,7 @@ import { Netflix_logo } from '../utils/constants';
 const Header = () => {
   const navigate = useNavigate()
   const user = useSelector((store) =>store.user)
-  console.log("userphoto",user)
+  //console.log("userphoto",user)
   const dispatch = useDispatch()
 
 const handleSignOut = ()=>{

@@ -23,6 +23,19 @@
 -as soon as the user sign in , we will navigate it to the browser page, so we have useNavigate hook
 //but when we did that in body , it throws an error useNavigate may be used only in the context of a <Router> component but this body is outside the router , it is itself the parent , so we need to add this inside the child component, so where should we add this , so we willl navigate in our login page
 - now we will add logout function signout authentication in header
+- BugFix: Sign up user displayName and picture update
+- BugFix: if the user is not logged in  Redirect /browse to login page and vice-versa
+
+- Unsubscribed to the onAuthStateChanged
+- Add hardcoded values to the constants file
+- Register TMDB API & create an app & get access token
+-Get Data from TMDB now playing movies list API 
+- make api call
+Register TMDB API & create an app & get access token
+-get Data from TMDB now playing movies list api , look for now playing api
+-make api call
+-add the movie data in redux store
+-make custom hook for api call of addNowPlayingMovies
 
 # Features
 - Login/Sign Up
