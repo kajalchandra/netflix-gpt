@@ -36,6 +36,16 @@ Register TMDB API & create an app & get access token
 -make api call
 -add the movie data in redux store
 -make custom hook for api call of addNowPlayingMovies
+- create movieSlice
+updated the store with movie data
+-Planning for mainContianer & secondary container
+fetch data for trailer video
+-update store with Trailer Video Data
+- Embedded the youtube video and make it autoplay&mute
+-added Tailwind classes to make mainContainer look awesome
+
+
+
 
 # Features
 - Login/Sign Up

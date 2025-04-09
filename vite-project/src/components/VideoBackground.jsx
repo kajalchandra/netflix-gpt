@@ -8,7 +8,7 @@ const VideoBackground = ({movieId}) => {
 
 
 
-// if(trailerVideo === null) return <h1>Loading...</h1>
+if(trailerVideo === null) return <h1>Loading...</h1>
   return (
     <div className="w-screen">
         <iframe 
