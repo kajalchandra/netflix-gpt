@@ -19,12 +19,13 @@
 -create redux store
 - we will push the user in our redux store
 - now we have a fucntion onAuthStateChanges , what does this function do, this api is called whenever the user signup, whenever the user sign in and whenever the user sign out matlab whenever the authentication state changed, this is kind of event listener
--we will do thiss setup in body of our app
+-we will do thiss setup in body of our app initially
 -as soon as the user sign in , we will navigate it to the browser page, so we have useNavigate hook
 //but when we did that in body , it throws an error useNavigate may be used only in the context of a <Router> component but this body is outside the router , it is itself the parent , so we need to add this inside the child component, so where should we add this , so we willl navigate in our login page
 - now we will add logout function signout authentication in header
 - BugFix: Sign up user displayName and picture update
-- BugFix: if the user is not logged in  Redirect /browse to login page and vice-versa
+- BugFix: if the user is not logged in  Redirect /browse to login page and vice-versa, humlog auth statechanged se hi navigate karenge
+onauthstatechange is the code which check auth of user
 
 - Unsubscribed to the onAuthStateChanged
 - Add hardcoded values to the constants file
@@ -43,6 +44,14 @@ fetch data for trailer video
 -update store with Trailer Video Data
 - Embedded the youtube video and make it autoplay&mute
 -added Tailwind classes to make mainContainer look awesome
+-Build Secondary component
+-Build Movie List
+-Build Movie Card
+-TMDB Image CDN URL
+-Made the browse page amazing with tailwind css
+- usePopularMovies custom hook
+GPT search feature
+
 
 
 

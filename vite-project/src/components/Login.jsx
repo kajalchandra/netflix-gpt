@@ -7,6 +7,7 @@ import { auth } from '../utils/firebase';
 
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { BG_URL } from '../utils/constants';
 
 
 const Login = () => {
@@ -93,7 +94,7 @@ const Login = () => {
     <div>
      <Header/>
       <div className='absolute' >
-        <img src='https://assets.nflxext.com/ffe/siteui/vlv3/fbf440b2-24a0-49f5-b2ba-a5cbe8ea8736/web_tall_panel/IN-en-20250324-TRIFECTA-perspective_69cb00d3-7b5e-45e8-b378-7757f9c8f60b_large.jpg'
+        <img src={BG_URL}
         alt='background'></img>
       </div>
       <form 
@@ -113,7 +114,7 @@ const Login = () => {
         <p className='text-red-500 font-bold text-lg py-2'>{errorMessage}</p>
         <button className='p-3 my-6 bg-red-700 w-full rounded-md cursor-pointer' 
         onClick={handleButtonClick}>{isSignInForm ? "Sign In" : "Sign Up"}</button>
-        <p className='p-4 cursor-pointer' onClick={toggleSignInForm}>{isSignInForm ? "New to Netflix? Sign Up now": "Already registered? Sign In Now"}</p>
+        <p className='p-4 cursor-pointer' onClick={toggleSignInForm}>{isSignInForm ? "New to Netflix? Sign Up now": "Already registered. Sign In Now"}</p>
       </form>
     </div>
   )
